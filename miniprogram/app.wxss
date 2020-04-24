@@ -1,0 +1,8 @@
+/**app.wxss**/
+/* 引入图标字体库 */
+@import "./styles/iconfont.wxss";
+/* 所有页面样式 */
+page{
+  /* 默认背景颜色 */
+  background-color: #f6f6f6;
+}

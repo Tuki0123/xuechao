@@ -1,0 +1,62 @@
+<!--miniprogram/pages/messageDetail/messageDeatil.wxml-->
+<!-- 底部输入框 -->
+<view class="bottom-wrapper">
+  <input class="bottom-input" value="{{value}}" bindinput="inputInput"></input>
+  <view class="bottom-send" catchtap="sendMessage">发送</view>
+</view>
+
+<!-- 顶部对象框 -->
+<view class="head-wrapper">
+  <!-- 商品类型 -->
+  <view wx:if="{{messageDetail.type=='goods'}}" class="head-item">
+    <image class="goods-img" src="{{messageDetail.objInfo.imgs[0]}}"></image>
+    <view class="goods-text">
+      <view class="goods-title">{{messageDetail.objInfo.title}}</view>
+      <view class="goods-price">{{messageDetail.objInfo.price}}</view>
+    </view>
+    <view wx:if="{{messageDetail.state}}">
+      <view wx:if="{{messageDetail.objInfo._openid==myOpenid}}" class="head-btn" catchtap="doOrder" data-type="goods">售出</view>
+    </view>
+    <icon wx:else class="iconfont icon-wancheng"></icon>
+  </view>
+  <!-- 其他任务 -->
+  <view wx:else class="head-item">
+    <view class="item-text">
+      <view wx:if="{{messageDetail.objInfo.type=='lost'}}" class="item-title">失物启事</view>
+      <view wx:if="{{messageDetail.objInfo.type=='found'}}" class="item-title">招领启事</view>
+      <view wx:if="{{messageDetail.objInfo.type=='errand'}}" class="item-title">代跑腿</view>
+      <view class="item-content">{{messageDetail.objInfo.textValue}}</view>
+    </view>
+    <view wx:if="{{messageDetail.state}}">
+      <view wx:if="{{messageDetail.objInfo._openid==myOpenid}}" class="head-btn" catchtap="doOrder" data-type="task">完成</view>
+    </view>
+    <icon wx:else class="iconfont icon-wancheng"></icon>
+  </view>
+</view>
+
+
+<view class="message-wrapper">
+  <block wx:for="{{messages}}" wx:key="index">
+    <!-- 时间 -->
+    <view class="time">{{item.time}}</view>
+    <!-- 对方聊天消息 -->
+    <view wx:if="{{item._openid!=myOpenid}}" class="other message">
+      <!-- 头像 -->
+      <image class="user-avatar" src="{{item.userinfo.avatarUrl}}"></image>
+      <!-- 消息 -->
+      <view class="message-text">
+        <text>{{item.value}}</text>
+      </view>
+    </view>
+    <!-- 自己聊天消息 -->
+    <view wx:else class="self message">
+      <!-- 消息 -->
+      <view class="message-text">
+        <text>{{item.value}}</text>
+      </view>
+      <!-- 头像 -->
+      <image class="user-avatar" src="{{item.userinfo.avatarUrl}}"></image>
+    </view>
+  </block>
+  <view class="bottom-anchor"></view>
+</view>

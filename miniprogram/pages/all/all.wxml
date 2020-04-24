@@ -1,0 +1,93 @@
+<!--miniprogram/pages/all/all.wxml-->
+<!--头部功能区水平滑块 -->
+<scroll-view class="scroll" enable-flex="true" scroll-x>
+  <!-- 失物招领 -->
+  <view class="head-item lostAndFound {{select[0]}}" catchtap="selectItem" data-index="0">
+    <icon class="iconfont icon-SWGL_YH"></icon>
+    <text>失物招领</text>
+  </view>
+  <!-- 代跑腿 -->
+  <view class="head-item errand {{select[1]}}"  catchtap="selectItem" data-index="1">
+    <icon class="iconfont icon-daipaotui "></icon>
+    <text>代跑腿</text>
+  </view>
+  <!-- 发布 -->
+  <view class="head-item publish {{select[2]}}"  catchtap="selectItem" data-index="2">
+    <icon class="iconfont icon-fabu"></icon>
+    <text>发布</text>
+  </view>
+  <!-- 开发中 -->
+  <view class="head-item more">
+    <icon class="iconfont icon-shouye_gongnengkaifazhong"></icon>
+    <text>开发中</text>
+  </view>
+</scroll-view>
+
+<!-- 内容区 -->
+<view class="content-wrapper">
+  <!-- 失物招领 -->
+  <view class="content lost-found {{select[0]}}" >
+    <block wx:for="{{task}}" wx:key="index">
+      <!-- 单个失物招领 -->
+      <view wx:if="{{item.type=='lost'||item.type=='found'}}" class="lost-found-item">
+        <!-- 主题 -->
+        <view wx:if="{{item.type=='found'}}" class="title">招领启事</view>
+        <view wx:if="{{item.type=='lost'}}" class="title">寻物启事</view>
+        <!-- 用户信息和时间 -->
+        <view class="user-wrapper">
+          <image class="avatar" mode="" src="{{item.userinfo.avatarUrl}}"></image>
+          <view class="name">{{item.userinfo.nickName}}</view>
+        </view>
+        <!-- 文字描述 -->
+        <view class="text">{{item.textValue}}</view>
+        <!-- 时间和按钮 -->
+        <view class="bottom">
+          <view class="time">{{item.time}}</view>
+          <view wx:if="{{item.state}}" class="btn" catchtap="goMessage" data-index="{{index}}">联系</view>
+          <icon wx:else class="iconfont icon-wancheng"></icon>
+        </view>
+      </view>  
+    </block>
+  </view>
+  <!-- 代跑腿 -->
+  <view class="content errand {{select[1]}}">
+    <block wx:for="{{task}}" wx:key="index">
+      <!-- 单个跑腿任务 -->
+      <view wx:if="{{item.type=='errand'}}" class="lost-found-item">
+        <!-- 主题 -->
+        <view  class="title">跑腿任务</view>
+        <!-- 用户信息和时间 -->
+        <view class="user-wrapper">
+          <image class="avatar" mode="" src="{{item.userinfo.avatarUrl}}"></image>
+          <view class="name">{{item.userinfo.nickName}}</view>
+        </view>
+        <!-- 文字描述 -->
+        <view class="text">{{item.textValue}}</view>
+        <!-- 时间和按钮 -->
+        <view class="bottom">
+          <view class="time">{{item.time}}</view>
+          <view wx:if="{{item.state}}" class="btn" catchtap="goMessage" data-index="{{index}}">联系</view>
+          <icon wx:else class="iconfont icon-wancheng"></icon>
+        </view>
+      </view>  
+    </block>
+  </view>
+  <!-- 发布页面 -->
+  <view class="content publish {{select[2]}}">
+    <!-- 单选框选择发布类型 -->
+    <view class="select-type" >
+      <radio-group class="radio-group" bindchange="getRadio">
+        <radio class="radio" value="lost">失物启事</radio>
+        <radio class="radio" value="found">招领启事</radio>
+        <radio class="radio" value="errand" checked>代跑腿</radio>
+      </radio-group>
+    </view>
+    <!-- 任务的文字描述 -->
+    <textarea class="publish-text" bindinput="getText" value="{{value}}" placeholder="请输入相关信息.....">
+    </textarea>
+    <!-- 发布 -->
+    <view class="publish-bottom">
+      <view class="publish-btn" catchtap="doPublish">发布</view>
+    </view>
+  </view>
+</view>

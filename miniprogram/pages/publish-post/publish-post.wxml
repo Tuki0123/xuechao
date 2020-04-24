@@ -1,0 +1,39 @@
+<!--miniprogram/pages/publish-post/publish-post.wxml-->
+<!-- 发布动态容器 -->
+<view class="publish-wrapper">
+  <!-- 用户信息 -->
+  <view class="user-info">
+    <!--头像  -->
+    <view class="user-avatar">
+      <image src="{{userInfo.avatarUrl}}"></image>
+    </view>
+    <!-- 昵称 -->
+    <view class="user-name">{{userInfo.nickName}}</view>
+
+    <!-- 发表按钮 -->
+    <button id="publish" style="display:{{publishBtn}}" catchtap="publishPost">发表</button>
+  </view>
+
+  <!-- 文字内容 -->
+  <view class="content-wrapper"> 
+    <textarea id="content-text" disabled="{{textDisabled}}" bindinput="getTextareaValue" placeholder="  我想说......"></textarea>
+  </view>
+
+  <!-- 图片内容 -->
+  <view class="img-wrapper">
+    <!--遍历增加图片  -->
+    <view class="img-item" wx:for="{{imgs}}" wx:key="*this">
+      <image class="img" 
+              src="{{item}}"
+              data-index="{{index}}"
+              mode="aspectFill"
+              bindtap="previewImg">
+              <!-- 删除图片图标 -->
+              <icon  class="delete-btn iconfont icon-guanbixiao" style="display:{{delectIcon}}" data-index="{{index}}" catchtap="deleteImg"></icon>
+      </image>
+    </view>
+    <!-- 增加 -->
+    <view class="img-add iconfont icon-zengjia" style="display:{{addHidden}}" bindtap="selectImg" ></view>
+  </view>
+
+</view>

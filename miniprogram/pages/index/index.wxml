@@ -1,0 +1,11 @@
+<!--index.wxml 欢迎页面，以授权则欢迎，未授权则询问授权-->
+<view class="container">
+
+	<view class="welcome">
+      学巢
+	</view>
+  
+  <button type="primary" plain open-type="getUserInfo" bindgetuserinfo="haddleGetUserInfo">登录</button>
+
+
+</view>

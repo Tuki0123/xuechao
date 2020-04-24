@@ -1,0 +1,105 @@
+/* miniprogram/pages/publish-post/publish-post.wxss */
+/* 外部容器样式 */
+.publish-wrapper{
+  width: 100%;
+  background-color: #fff;
+  margin-top: 1rem;
+}
+/* 用户信息 */
+.user-info{
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  padding: 10px;
+  /* 弹性 */
+  display: flex;
+}
+.user-info .user-avatar{
+  width: 40px;
+  height: 40px;
+  margin: 5px 0;
+}
+.user-avatar > image{
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  /* 圆角 */
+  border-radius: 50%;
+}
+.user-info .user-name{
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 15px;
+}
+/* 发表按钮 */
+#publish{
+  /* 大小 */
+  width: 65px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 15px;
+  /* 颜色 */
+  color: #fff;
+  background-color: #167AC6;
+  /* 圆角 */
+  border-radius: 8px;
+  /* 位置 */
+  margin-right: 20px;
+
+}
+
+/* 输入框样式 */
+.content-wrapper{
+  width: 100%;
+  height: 150px;
+  padding: 10px 20px;
+}
+/* 图片容器 */
+.img-wrapper{
+  width: 100%;
+  display: flex;
+  /* 换行 */
+  flex-wrap: wrap;
+  padding: 10px;
+}
+/* 图片 */
+.img-wrapper .img-item{
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border-radius: 5px;
+}
+.img-wrapper .img-item > image{
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  position: relative;
+}
+/* 删除图标 */
+.delete-btn{
+  /* 大小 */
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  /* 颜色 */
+  color: red;
+  /* 定位右上角 */
+  position: absolute;
+  top: -5px;
+  right: 0;
+  
+}
+/* 添加图片的样式 */
+.img-wrapper .img-add{
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #F2F2F2;
+  /* 设置弹性方便内部元素居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 图标字体大小 */
+  font-size: 60px;
+}

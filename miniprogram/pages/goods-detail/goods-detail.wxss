@@ -1,0 +1,211 @@
+/* miniprogram/pages/goods-detail.wxss */
+
+/* 设置顶部用户信息 */
+.user-wrapper{
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background-color: #fff;
+  /* padding-bottom: 10px; */
+  border-bottom: 1px solid #e9e9e9;
+  /* 设置弹性 */
+  display: flex;
+  /* 定位 */
+  position: fixed;
+  top: 0px;
+}
+/* 设置头像 */
+.user-wrapper .user-img > image{
+  width: 40px;
+  height: 40px;
+  margin: 0px 15px;
+  background-size: cover;
+  /* 圆角 */
+  border-radius: 50%;
+  /* 裁剪 */
+}
+/* 设置名字 */
+.user-wrapper .user-name{
+  font-size: 16px;
+  font-weight: bold;
+}
+/* 设置时间 */
+.user-wrapper .goods-date{
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 20px auto auto;
+  color: #999;
+}
+.user-wrapper .goods-date::before{
+  content: '上架时间：';
+}
+
+/* 设置商品信息样式 */
+/* 外部容器 */
+.goods-info-wrapper{
+  margin-top: 50px;
+  width: 100%;
+  background-color: #fff;
+}
+/* 价钱 */
+.goods-info-wrapper .goods-price{
+  height: 30px;
+  font-size: 17px;
+  color: #ff5000;
+  font-weight: bold;
+
+  margin: 20px auto 10px 20px;
+}
+.goods-info-wrapper .goods-price::before{
+  content: '￥';
+}
+/* 文字内容 */
+.goods-info-wrapper .goods-title{
+  font-size: 17px;
+  font-weight: bold;
+  /* 下外边距 */
+  margin: 0px auto 20px 20px ;
+}
+.goods-info-wrapper .goods-content{
+  font-size: 16px;
+  /* 下外边距 */
+  margin: 0px auto 20px ;
+}
+/* 商品图片 */
+.goods-info-wrapper .goods-imgs{
+  margin: 10px 20px;
+}
+.goods-info-wrapper .goods-imgs > image{
+  border-radius: 10px;
+  width: 100%;
+  vertical-align: bottom;
+  margin: 10px auto;
+}
+
+/* 留言板块样式 */
+/* 留言板容器 */
+.message-wrapper{
+  /* 大小颜色 */
+  width: 100%;
+  background-color: #fff;
+  padding: 10px 0px;
+  margin-top: 10px;
+  /* 为了不被底部挡住 ，加个底部外边距*/
+  margin-bottom: 10px;
+}
+/* 留言板title */
+.message-wrapper .message-title{
+  height: 25px;
+  line-height: 25px;
+  font-size: 17px;
+  color: #000;
+  font-weight: bold;
+  padding-left: 20px;
+
+}
+/* 下面引发评论和抢沙发的模块 */
+.no-message{
+  /* 大小边框 */
+  height: 30px;
+  line-height: 30px;
+  border-radius: 6px;
+  margin-bottom: 50px;
+  /* 颜色 */
+  background-color: #fff;
+  /* 阴影 */
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 5px 0px;
+  /* 文字 */
+  text-align: center;
+  color: #999999;
+}
+/* 留言块 */
+.message-wrapper .message-item{
+  width: 100%;
+  border-top: 1px solid #e9e9e9;
+}
+/* 用户 */
+.message-wrapper .message-item .message-user{
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  align-items: center;
+}
+.message-wrapper .message-user-img{
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+  background-size: cover;
+  border-radius: 20%;
+}
+.message-wrapper .message-user-name{
+  font-size: 15px;
+  font-weight: bold;
+}
+.message-wrapper .message-date{
+  font-size: 14px;
+  font-weight: bold;
+  color: #999;
+  margin-left: auto;
+  margin-right: 0px;
+}
+.message-wrapper .message-content{
+  line-height: 16px;
+  padding: 5px 20px 5px 40px;
+}
+
+
+
+/* 最下部工具块 */
+.bottom-wrapper{
+  /* 大小颜色 */
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background-color: #fff;
+  border-top: 1px solid rgba(153, 153, 153, .3);
+  /* 固定定位 */
+  position: fixed;
+  bottom: 0px;
+  /* 弹性 */
+  display: flex;
+  align-items: center;
+}
+/* 输入框 */
+.bottom-wrapper > input{
+  /* 大小位置 */
+  height: 30px;
+  margin:0px 15px 0px 15px;
+  padding: 0 20px;
+  /* 背景颜色 */
+  background-color: #f6f6f6;
+  /* 圆角 */
+  border-radius: 10px;
+  /* 动画 */
+  transition: all 500ms;
+}
+/* 输入框旁的发送按钮 */
+.bottom-wrapper .bottom-send {
+  font-size: 16px;
+  
+}
+/* 输入框旁的我想要 */
+.i-want{
+  /* 大小边框 */
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 10px;
+  margin-left: 50px;
+  /* 颜色 */
+  color: #fff;
+  background-color: #fed802;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

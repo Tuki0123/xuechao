@@ -1,0 +1,99 @@
+/* pages/message/message.wxss */
+/* 顶部栏 */
+.head-wrapper{
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  /* 弹性居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  /* 定位 */
+  position: fixed;
+  top: 0px;
+}
+/* 顶部标题 */
+.head-title .title{
+  height: 40px;
+  font-size: 18px;
+}
+
+/* 消息列表 */
+.message-list{
+  /* 大小边框 */
+  width: 100%;
+  margin-top: 50px;
+  padding: 10px 10px;
+  background-color: #fff;
+}
+/* 单个会话消息 */
+.message-item{
+  width: 100%;
+  height: 50px;
+  /* 弹性 */
+  display: flex;
+  align-items: center;
+}
+/* 头像 */
+.message-item .user-imgs{
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  margin:5px 10px;
+} 
+/* 文字部分 */
+.message-item .text-wrapper{
+  height: 40px;
+  width: 75%;
+}
+/* 名字时间 */
+.text-wrapper .user-info{
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  /* 弹性 */
+  display:  flex;
+  /* 两端对齐 */
+  justify-content: space-between;
+}
+/* 名字 */
+.user-info .user-name{
+  font-size: 16px;
+  color: #000;
+  text-overflow: ellipsis;
+}
+/* 时间 */
+.user-info .message-time{
+  font-size: 15px;
+  color: rgb(110, 110, 110);
+}
+/* 最新消息 */
+.text-wrapper .message-new{
+  box-sizing: border-box;
+  height: 20px;
+  width: 281px;
+  line-height: 20px;
+  font-size: 15px;
+  color: rgb(110, 110, 110);
+  /* 省略号 */
+  text-overflow: ellipsis;
+  /* 不换行 */
+  white-space: nowrap;
+  /* 溢出不显示 */
+  overflow: hidden;
+
+}
+
+/* 下拉刷新 */
+.down-refresh{
+  width: 100%;
+  height: 20px;
+  margin: 10px auto;
+  /* 字体颜色 */
+  color: rgb(110, 110, 110);
+  font-size: 15px;
+  /* 弹性居中 */
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,184 @@
+/* miniprogram/pages/publish-goods/publish-goods.wxss */
+/* 引入文章发布的wxss，文字内容和图片部分可以复用 */
+@import'../publish-post/publish-post.wxss';
+/* 顶部容器 */
+.top-wrapper{
+  /* 大小位置 */
+  width: 100%;
+  height: 34px;
+  position: fixed;
+  top:0px;
+  /* 背景颜色 */
+  background-color: #fed802;
+  /* 字体 */
+  font-size: 16px;
+  color: #000;
+  /* 弹性 */
+  display: flex;
+  /* 弹性设置：主轴空白分配 */
+  justify-content: space-between;
+  /* 弹性设置：侧轴对齐方式 */
+  align-items: center;
+  /* 图层 */
+  z-index: 999;
+}
+/* 顶部左侧返回 */
+.top-wrapper .top-back{
+  width: 40px;
+  margin-left: 20px;
+} 
+/* 顶部右侧发布 */
+.top-wrapper .top-publish-btn{
+  /* 大小 */
+  width: 50px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 15px;
+  font-weight: bold;
+  /* 颜色 */
+  color: #fed802;
+  background-color: #7f6c01;
+  /* 圆角 */
+  border-radius: 10px;
+  /* 位置 */
+  margin-right: 20px;
+  text-align: center;
+  /* padding: auto; */
+}
+/* 设置边距，防止被顶部遮挡 */
+.publish-wrapper{
+  margin-top: 34px;
+}
+/* titile块 */
+.goods-title-wrapper{
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  padding: 5px 20px;
+}
+.goods-title-wrapper > input{
+  width: 100%;
+  height: 30px;
+  margin: auto;
+  font-size: 20px;
+}
+
+/* 下部信息框 */
+.more-info{
+  width: 90%;
+  /* 居中 */
+  margin: 10px auto;
+
+  /* 上边边框 */
+  border-bottom: 1px solid #E0E0E0;
+}
+/* 两行信息设置框 */
+.info-wrapper{
+  /* 大小边框 */
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  border-top: 1px solid #E0E0E0;
+  /* 弹性 */
+  display: flex;
+  /* 弹性主轴两端分布 */
+  justify-content: space-between;
+  /* 弹性侧轴对齐 */
+  align-items: center;
+  /* 字体大小 */
+  font-size: 16px;
+}
+/* 所有图标字体的默认样式 */
+.iconfont{
+  color: #BFBFBF;
+}
+/* 左侧的图标字体 */
+.icon-gengduomore12{
+  margin-right: 11px;
+  font-size: 19px;
+}
+.icon-jiage{
+  /* 另个图标来源不一导致大小不同步 */
+  margin-right: 10px;
+  font-size: 20px;
+}
+/* 右侧的图标字体 */
+.info-wrapper .right > icon{
+  margin-left: 10px;
+  font-size: 16px;
+}
+/* 人民币颜色 */
+.right > .icon-renminbi , .price{
+  color: #FF1919;
+}
+/* 人民币图标大小 */
+.icon-renminbi{
+  font-size: 16px;
+}
+/* 分类信息显示 */
+.category{
+  color: #BFBFBF;
+  font-size: 16px;
+}
+/* 隐藏价格输入框容器 */
+.input-Price-wrapper{
+  /* 大小边框 */
+  box-sizing: border-box;
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+  /* 设置动画 */
+  transition: height 0.5s;
+}
+/* 价格输入框内的样式 */
+.input-Price-wrapper > view{
+  box-sizing: border-box;
+  height: 40px ;
+  border-top:1px solid #E0E0E0;
+  /* 弹性 */
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  /* 字体大小 */
+  font-size: 16px;
+}
+/* 价格输入框内的图标字体 */
+.input-Price-wrapper > view .iconfont{
+  margin: -7px 0 0 15px ;
+}
+/* 分类隐藏块 */
+.more-wrapper{
+  /* 大小边框 */
+  box-sizing: border-box;
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+  /* 设置动画 */
+  transition: height 0.5s;
+}
+/* 隐藏分类行 */
+.more-wrapper > view{
+  box-sizing: border-box;
+  height: 40px ;
+  border-top:1px solid #E0E0E0;
+  /* 弹性 */
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  /* 字体大小 */
+  font-size: 16px;
+}
+.categorySelect > text{
+  margin-right: 20px;
+}
+/* ISBN查询行样式 */
+.ISBN-input-wrapper > input{
+  width: 50%;
+}
+.ISBN-input-wrapper > button{
+  width: 50px;
+  height:25px;
+  line-height: 25px;
+  font-size: 15px;
+  margin-right: 0px;
+}

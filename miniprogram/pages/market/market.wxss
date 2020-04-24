@@ -1,0 +1,172 @@
+/* pages/market/market.wxss */
+/* 悬浮发布按钮 */
+.fixed-add{
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, .7);
+  /* 定位 */
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 999;
+}
+.fixed-add > icon{
+  font-size: 30px;
+  text-align: center;
+  padding-left: 5px;
+  color: #fff;
+}
+
+
+
+
+/* 设置顶部搜索框样式 */
+/* 外部容器 */
+.top-research-wrapper{
+  background-color: #fed802;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0px 20px;
+  height: 34px;
+  /* 弹性 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* 定位 */
+  position: fixed;
+  top:0px;
+}
+/* input样式 */
+.top-research-wrapper .research-input{
+  box-sizing: border-box;
+  width: 250px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, .4);
+  /* 圆角 */
+  border-radius: 15px;
+  /* 内边距 */
+  padding: 0px 20px;
+}
+/* 搜索按钮 */
+.top-research-wrapper .head-btn{
+  width: 50px;
+  height: 25px;
+  line-height: 25px;
+  border-radius: 12.5px;
+  background-color: #fff;
+  color: #fed802;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 设置导航栏 */
+.menu-wrapper{
+  /* 大小框架 */
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  background-color: #fff;
+  /* 子元素不换行 */
+  white-space: nowrap;
+   /* 定位 */
+  position: fixed;
+  top: 34px;
+}
+/* 设置导航单项 */
+.menu-wrapper .menu-item{
+  /* padding: 0 10rpx; */
+  width: 80px;
+  text-align: center;
+  /* 行内块，不换行 */
+  display: inline-block;
+  font-size: 14px;
+}
+
+/* 没数据 */
+.noMoreGoods{
+  width: 100%;
+  height: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  color: #fed802;
+  margin-top:90px;
+}
+
+
+
+
+
+/* 商品容器 */
+.list-wrapper{
+  width: 100%;
+  margin-top: 70px;
+  /* background-color: orange; */
+  display: flex;
+
+}
+
+/* 左列商品列 */
+.left-list-wrapper{
+  width: 50%;
+}
+/* 右列商品列 */
+.right-list-wrapper{
+  width: 50%;
+}
+/* 商品容器 */
+.goods-wrapper{
+  /* 大小 */
+  width: 95%;
+  margin: 20rpx auto;
+  /* 颜色 */
+  background-color: #fff;
+  /* 圆角 */
+  border-radius: 20rpx;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+ overflow: hidden;
+}
+/* 商品图片 */
+.imgs-wrapper{
+  width: 100%;
+  max-height: 200px;
+  overflow: hidden;
+}
+.imgs-wrapper > image{
+  padding: 0;
+  width: 100%;
+  vertical-align: top;
+}
+/* 商品名字 */
+.goods-wrapper .goods-title{
+  /* 内边距 */
+  padding: 5px 10px;
+  /* 字体 */
+  font-size: 16px;
+  font-weight: bold;
+}
+/* 价钱 */
+.goods-wrapper .goods-price{
+  font-size: 15px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  color: #ff5000;
+  font-weight: bold;
+}
+.goods-wrapper .goods-price::before{
+  content: '￥';
+  font-size: 15px
+}
+/* 已售出 */
+.icon-yimaichu{
+  position: relative;
+  height: 15px;
+  left: 100px;
+  bottom: 50px;
+  font-size: 60px;
+  color: #ff5000;
+}

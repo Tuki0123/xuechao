@@ -1,0 +1,115 @@
+/* miniprogram/pages/square/square.wxss */
+
+/*add按钮*/
+.add_post {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, .7);
+  /* 定位 */
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+}
+.add_post > icon{
+  font-size: 30px;
+  text-align: center;
+  padding-left: 5px;
+  color: #fff;
+}
+
+/*动态模块css*/
+
+/* 动态区容器 */
+.paddingOfCard {
+  padding: 1rem 1rem;
+}
+/* 单个文章容器 */
+.carditem {
+  border-radius: 6px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 5px 0px;
+  margin-bottom: 1rem;
+}
+/* 头部容器 */
+.headnav {
+  height: 50px;
+  /* 弹性 */
+  display: flex;
+  /* 垂直居中 */
+  align-items: center;
+  /* 水平居中 */
+  justify-content: flex-start;
+  flex-direction: row;
+}
+/* 用户信息容器 */
+.userinfo {
+  justify-content: flex-start;
+  align-items: center;
+}
+/* 头像 */
+.headimage {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  border-radius:20px;
+  /* 图片形式 */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+/* 用户发表的图片 */
+.carditemimage {
+  width: 100%;
+  height: 12rem;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+/* 文字 */
+.carditemtext {
+  font-size: 14px;
+  color: rgb(110, 110, 110);
+  text-align: justify;
+  line-height: 1.7em;
+  margin: 5px;
+}
+/* 底部容器 */
+.cardbottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 40px;
+  margin-right: 15px;
+}
+/* 点赞容器 */
+.bottomlike {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  min-width: 40px;
+  margin-right: 15px;
+}
+.bottomlike > icon{
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  position: relative;
+  top: -8px;
+}
+
+.bottomhate {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  min-width: 40px;
+  margin-right: 15px;
+}
+.bottomhate > icon{
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    position: relative;
+    top: -8px;
+}

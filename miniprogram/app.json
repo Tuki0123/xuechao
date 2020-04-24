@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/all/all",
+    "pages/message/message",
+    "pages/market/market",
+    "pages/login/login",
+    "pages/messageDetail/messageDeatil",
+    "pages/publish-goods/publish-goods",
+    "pages/square/square",
+    "pages/publish-post/publish-post",
+    "pages/me/me",
+    "pages/goods-detail/goods-detail",
+    "pages/postDetail/postDetail",
+    "pages/cover-view/book-info/book-info"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fed802",
+    "navigationBarTitleText": "学巢",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#626567",
+    "selectedColor": "#2A8CE5",
+    "backgroundColor": "#FBFBFB",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/square/square",
+        "text": "广场",
+        "iconPath": "icon/square-1.png",
+        "selectedIconPath": "icon/square-2.png"
+      },
+      {
+        "pagePath": "pages/market/market",
+        "text": "集市",
+        "iconPath": "icon/market-1.png",
+        "selectedIconPath": "icon/market-2.png"
+      },
+      {
+        "pagePath": "pages/all/all",
+        "text": "功能",
+        "iconPath": "icon/all-1.png",
+        "selectedIconPath": "icon/all-2.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "iconPath": "icon/message-1.png",
+        "selectedIconPath": "icon/message-2.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "icon/me-1.png",
+        "selectedIconPath": "icon/me-2.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

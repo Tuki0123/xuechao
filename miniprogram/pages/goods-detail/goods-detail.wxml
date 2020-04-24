@@ -1,0 +1,65 @@
+<!--miniprogram/pages/goods-detail.wxml-->
+<!-- 顶部用户信息 -->
+<view class="user-wrapper">
+  <!-- 头像 -->
+  <view class="user-img">
+    <image src="{{userInfo.userInfo.avatarUrl}}"></image>
+  </view>
+  <!-- 名字 -->
+  <view class="user-name">{{userInfo.userInfo.nickName}}</view>
+  <!-- 上架时间 -->
+  <view class="goods-date">{{goods.time}}</view>
+</view>
+
+<!-- 商品信息 -->
+<view class="goods-info-wrapper">
+  <!-- title -->
+  <view class="goods-title">
+    <text>{{goods.title}}</text>
+  </view>
+  <!-- 价格 -->
+  <view class="goods-price">{{goods.price}}</view>
+  <!-- 详情介绍 -->
+  <view class="goods-content">
+    <text>{{goods.textValue}}</text>
+  </view>
+
+  <view class="goods-imgs">
+    <block wx:for="{{goods.imgs}}" wx:key="index">
+      <image src="{{item}}" mode="widthFix"></image>
+    </block>
+  </view>
+</view>
+
+<!-- 留言 -->
+<view wx:if="{{message.length != 0}}" class="message-wrapper" >
+  <view class="message-title">全部留言</view>
+  <block wx:for="{{message}}" wx:key="index">
+    <view class="message-item">
+      <view class="message-user">
+        <image class="message-user-img" src="{{item.userinfo.avatarUrl}}"></image>
+        <view class="message-user-name">{{item.userinfo.nickName}}</view>
+        <view class="message-date">{{item.time}}</view>
+      </view>
+      <view class="message-content">{{item.value}}</view>
+    </view>
+  </block>
+</view>
+<!-- 如果没有评论则显示 -->
+<view wx:if="{{goods.state}}" catchtap="doMessage">
+  <view wx:if="{{message.length == 0}}" class="no-message">还没人留言</view>
+  <view wx:else class="no-message">留言询问商品信息吧</view>
+</view>
+
+
+<!-- 最下方功能块 -->
+<view wx:if="{{goods.state}}" class="bottom-wrapper">
+  <!-- 输入框，绑定了许多事件，功能详见JS页面和官方input组件文档 -->
+  <input class="pinglun-input" value="{{value}}" placeholder="留言了解更多..." bindfocus="inputFocus" bindblur="inputBlur"  bindinput="inputInput" focus="{{foucs}}" style="width:{{inputWidth}}"></input>
+  <!-- 输入框聚焦时显示发送按钮,字体颜色根据输入框是否有内容而改变 -->
+  <view wx:if="{{inputSend}}" style="color:{{inputSendColor}}" catchtap="sendMessage"  class="bottom-send">发送</view>
+  <!-- 输入框失去焦点时显示下单和联系卖家按钮 -->
+  <view wx:else class="i-want" catchtap="iWant">
+    <text>我想要</text>
+  </view>
+</view>

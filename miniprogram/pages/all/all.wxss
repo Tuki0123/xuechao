@@ -1,0 +1,180 @@
+/* miniprogram/pages/all/all.wxss */
+/* 横向滚动容器 */
+.scroll{
+  /* 大小 */
+  width: 100%;
+  height: 80px;
+  /* 定位 */
+  position: fixed;
+  top: 0px;
+  /* 颜色 */
+  background-color: #fff;
+  /* 不换行 */
+  white-space: nowrap;
+}
+/* 各个功能块 */
+.scroll .head-item{
+  width: 60px;
+  height: 60px;
+  margin: 10px;
+  display: inline-block;
+  /* 颜色 */
+  background-color: #fff;
+  color: #fed802;
+  /* 边框 */
+  border-radius: 5px;
+}
+.scroll  .selected{
+  /* 颜色 */
+  background-color: #fed802;
+  color: #fff;
+}
+/* 功能块的图标 */
+.head-item > icon{
+  font-size: 30px;
+  margin: 5px 15px;
+}
+.head-item > text{
+  width: 100%;
+  display: block;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* 共同：内容容器 */
+.content-wrapper{
+  /* 大小 */
+  width: 100%;
+  height: auto;
+  margin-top:80px;
+  /* 颜色 */
+  background-color: #fff;
+}
+.content{
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 20px;
+}
+/* 未选择则不显示 */
+.content-wrapper > .none{
+  display: none;
+}
+/* 选中则显示 */
+.content-wrapper > .selected{
+  display: block;
+}
+
+/* 失物招领的样式 */
+.lost-found-item{
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  /* 边框 */
+  border-bottom: 1px solid #E0E0E0;
+}
+/* 头部标题 */
+.lost-found-item .title{
+  /* 大小 */
+  width: 100%;
+  height: 20px;
+  /* 字体 */
+  font-size: 17px;
+  font-weight: bold;
+}
+/* 所有的用户信息 */
+.user-wrapper{
+  width: 100%;
+  height: 40px;
+  /* 弹性 */
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+/* 头像 */
+.user-wrapper .avatar{
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  background-size: cover;
+  border-radius: 5px;
+}
+/* 名字 */
+.user-wrapper .name{
+  font-size: 16px;
+  font-weight: bold;
+}
+/* 文字内容 */
+.text{
+  width: 100%;
+  height: auto;
+}
+/* 时间和联系行 */
+.bottom{
+  width: 100%;
+  height: 30px;
+  /* 弹性 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* 时间 */
+.bottom .time{
+  font-size: 15px;
+  color: #E3E3E3;
+}
+/* 联系按钮 */
+.bottom .btn{
+  /* 大小 */
+  width: 40px;
+  height: 20px;
+  margin: 5px 10px;
+  border-radius: 5px;
+  background-color: #fed802;
+  /* 字体 */
+  font-size: 15px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* 发布页面 */
+/* 单选 */
+.publish .radio-group{
+  width: 100%;
+  height: 30px;
+  /* 弹性 */
+  display: flex;
+  justify-content: space-evenly;
+}
+/* 文字内容 */
+.publish .publish-text{
+  width: 100%;
+  padding: 10px;
+}
+/* 发布按钮 */
+.publish .publish-bottom{
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+}
+.publish .publish-bottom .publish-btn{
+  width: 50px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #fed802;
+  text-align: center;
+}
+/* 已完成 */
+.icon-wancheng{
+  width: 50px;
+  height: 50px;
+  color:#E3E3E3;
+  font-size: 60px;
+  margin-bottom: 50px;
+}

@@ -1,0 +1,47 @@
+<!--广场动态模版-->
+<!--item应有：user.image   user.name   user.college  images  text  like pinglun  time-->
+
+
+<template name="square-items">
+    <view class="carditem" >
+    <!-- 用户信息框 -->
+      <view class="userinfo">
+        <navigator class="headnav">
+          <!--image mode属性：图片的裁剪缩放模式；aspectFill：以短边为主，多余部分截取-->
+          <image class="headimage" mode="aspectFill"  src="{{item.userinfo[0].userInfo.avatarUrl}}" />
+          <view class="usertext" style="margin-left: 20px;">
+            <text class="usertext-name" style="margin-bottom: 3px;display:block;">{{item.userinfo[0].userInfo.nickName}}</text>
+            <text class="usertext-college" style="font-size: 13px;color: #a1a1a1;">{{item.userinfo[0].college}}</text>
+          </view>
+        </navigator>
+      </view>
+
+      <!-- 动态内容 -->
+      <view class="itemnav">
+        <!-- 条件渲染，如果没图片则为一个空块 -->
+        <view wx:if="{{item.imgs.length == 0}}"></view>
+        <image wx:else class="carditemimage"  catchtap="previewImg" data-imgs="{{item.imgs}}" mode="aspectFill" src="{{item.imgs[0]}}" />
+        <view class="itemtextpadding" style="padding:10px;">
+          <text class="carditemtext">{{item.textContent}}</text>
+        </view>
+      </view>
+
+      <!-- 下部信息 -->
+      <view class="cardbottom" style="padding:10px;">
+        <view class="bottomlikehate" style="display: flex;padding-left: 0.5rem;">
+          <view class="bottomlike" catchtap="likeBtn" data-index="{{index}}">
+            <icon wx:if="{{item.iLike}}" class="iconfont icon-xihuan" style="color:#FC3B65"></icon>
+            <icon wx:else class="iconfont icon-xihuan1"></icon>
+            <text class="liketext" style="font-size: 12px;color: #8c8c8c;">{{item.likeSum}}</text>
+          </view>
+          <view class="bottomhate" >
+            <!-- <image class="hateimage" mode="aspectFit" src="/icon/square/item-pinglun.png" /> -->
+            <icon class="iconfont icon-pinglun"></icon>
+            <text class="hatetext" style="font-size: 12px;color: #8c8c8c;">{{item.comments.length}}</text>
+          </view>
+        </view>
+        <text class="publishtime" style="font-size: 12px;color: #8c8c8c;">{{item.time}}</text>
+      </view>
+      
+    </view>
+</template>

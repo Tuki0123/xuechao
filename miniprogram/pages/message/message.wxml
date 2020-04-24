@@ -1,0 +1,24 @@
+<!--pages/message/message.wxml-->
+<view class="head-wrapper">
+  <view class="title">消息列表</view>
+</view>
+
+<view class="message-list">
+  <block wx:for="{{messageList}}" wx:key="index">
+    <view class="message-item" catchtap="goMessageDetail" data-index="{{index}}">
+      <image class="user-imgs" mode="aspectFill" src="{{item.otheruser.userInfo.avatarUrl}}"></image>
+      <view class="text-wrapper">
+        <view class="user-info">
+          <text class="user-name">{{item.otheruser.userInfo.nickName}}</text>
+          <text class="message-time">{{item.messages[item.messages.length-1].time}}</text>
+        </view>
+        <view class="message-new">{{item.messages[item.messages.length-1].value}}</view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<!-- 下拉刷新提示 -->
+<view class="down-refresh">
+  <text>下拉刷新</text>
+</view>

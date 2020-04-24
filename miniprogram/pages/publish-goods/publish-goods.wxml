@@ -1,0 +1,81 @@
+<!--miniprogram/pages/publish-goods/publish-goods.wxml-->
+<!-- 商品发布页面 -->
+<view class="top-wrapper">
+	<view catchtap="goBack" style="display:{{flexNone}}" class="top-back">取消</view>
+	<view catchtap="doPublish" style="display:{{flexNone}}"  class="top-publish-btn">发布</view>
+</view>
+
+<view class="publish-wrapper">
+
+  <view class="goods-title-wrapper">
+    <input class="goods-title" bindinput="getTextValue" disabled="{{disabledAll}}" data-type="title" placeholder="商品名称"></input>
+  </view>
+	<view class="content-wrapper">
+		<!--文字描述内容  -->
+		<textarea class="text-description" bindinput="getTextValue" disabled="{{disabledAll}}" data-type="textarea" placeholder="请输入详细信息，如：品牌型号，新旧程度，入手渠道，转手原因..."></textarea>
+	</view>
+
+	<!-- 图片内容 -->
+	<view class="img-wrapper">
+		<!--遍历增加图片  -->
+		<view class="img-item" wx:for="{{imgs}}" wx:key="*this">
+			<image class="img" src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg">
+				<!-- 删除图片图标 -->
+				<icon class="delete-btn iconfont icon-guanbixiao" style="display:{{flexNone}}" data-index="{{index}}" catchtap="deleteImg"></icon>
+			</image>
+		</view>
+		<!-- 增加 -->
+		<view class="img-add iconfont icon-zengjia" style="display:{{addHidden}}" bindtap="selectImgs"></view>
+	</view>
+
+  <!-- 更多信息 -->
+  <view class="more-info">
+    <!-- 价格 -->
+    <view class="info-wrapper" catchtap="hiddenWapper" data-type="price" >
+      <view class="left">
+        <icon class="iconfont icon-jiage"></icon>价格
+      </view>
+      <view class="right">
+        <icon class="iconfont icon-renminbi"></icon>
+        <text class="price">{{price}}</text>
+        <icon class="iconfont icon-youjiantou"></icon>
+      </view>
+    </view>
+    <!-- 价格隐藏框 -->
+    <view class="input-Price-wrapper" style="height:{{priceHeight}}">
+      <view class="price-sale"> 
+        <text>上架价格</text> <icon class="iconfont icon-renminbi" ></icon> 
+        <input class="price-sale-input" disabled="{{disabledAll}}" bindinput="getTextValue" data-type="price-sale" type="number" placeholder="0.00" maxlength="9"></input>
+      </view>
+      <view class="price-ori">
+        <text>入手价格</text> <icon class="iconfont icon-renminbi" ></icon> 
+        <input class="price-ori-input" disabled="{{disabledAll}}" bindinput="getTextValue" data-type="price-ori" type="digit" placeholder="0.00" maxlength="9"></input>
+      </view>
+    </view>
+    <!-- 其他信息 -->
+    <view class="info-wrapper" catchtap="hiddenWapper" data-type="more">
+      <view class="left">
+        <icon class="iconfont icon-gengduomore12"></icon>更多信息
+      </view>
+      <view class="right">
+        <text class="category">类别：{{categoryAll[index]}}</text>
+        <icon class="iconfont icon-youjiantou"></icon>
+      </view>
+    </view>
+    <!-- 分类隐藏框 -->
+    <view class="more-wrapper"  style="height:{{moreHeight}}" >
+      <view class="categorySelect">
+        <text>分类</text>
+        <picker bindchange="changeCategory" disabled="{{disabledAll}}" value="{{index}}" range="{{categoryAll}}">
+          <view class="picker">{{categoryAll[index]}} </view>
+        </picker>
+      </view>
+      <view class="ISBN-input-wrapper">
+        <text>ISBN码：</text>
+        <input class="ISBN-input" disabled="{{disabledAll}}"  bindinput="getTextValue" data-type="ISBN" type="number" placeholder="13位/10位纯数字" maxlength="13" value="{{isbnValue}}"></input>
+        <button class="checkSIBN" disabled="{{disabledAll}}" catchtap="checkISBN">查</button>
+      </view>
+    </view>
+  </view>
+  <view style="height:10px"></view>
+</view>

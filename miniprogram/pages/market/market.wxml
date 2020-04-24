@@ -1,0 +1,55 @@
+<!--pages/market/market.wxml-->
+
+<!-- 设置悬浮发布按钮 -->
+<view class="fixed-add" catchtap="goPublish">
+  <icon class="iconfont icon-icon-"></icon>
+</view>
+
+<!-- 设置顶部搜索框 -->
+<view class="top-research-wrapper">
+  <input class="research-input" value="{{value}}" confirm-type="search" bindinput="getInput" focus placeholder="搜索"></input>
+  <view class="head-btn" catchtap="doSearch">搜索</view>
+</view>
+
+<!-- 导航栏 -->
+<scroll-view scroll-x class="menu-wrapper">
+  <view class="menu-item" catchtap="getCategoryGoods" data-value="all">全部</view>
+  <view class="menu-item" catchtap="getCategoryGoods" data-value="手机数码">手机数码</view>
+  <view class="menu-item" catchtap="getCategoryGoods" data-value="二手书籍">二手书籍</view>
+  <view class="menu-item" catchtap="getCategoryGoods" data-value="体育运动">体育运动</view>
+  <view class="menu-item" catchtap="getCategoryGoods" data-value="美妆服饰">美妆服饰</view>
+  <view class="menu-item" catchtap="getCategoryGoods" data-value="鞋包首饰">鞋包首饰</view>
+  <view class="menu-item" catchtap="getCategoryGoods" data-value="生活百货">生活百货</view>
+</scroll-view>
+
+<view wx:if="{{goods.length!=0}}" class="list-wrapper">
+  <!-- 两列商品展览 -->
+  <view class="left-list-wrapper">
+     <block wx:for="{{goods}}" wx:for-item="item" wx:key="index">
+      <view wx:if="{{index%2==0}}" class="goods-wrapper" bindtap="goGoodsDetail" data-index="{{index}}">
+        <view class="imgs-wrapper">
+          <image class="goods-img" src="{{item.imgs[0]}}" mode="widthFix"></image>
+        </view>
+        <view class="goods-title">{{item.title}}</view>
+        <view wx:if="{{item.state}}"  class="goods-price">{{item.price}}</view>
+        <view wx:else class="iconfont icon-yimaichu"></view>
+      </view>
+    </block>
+  </view>
+
+  <view class="right-list-wrapper">
+    <block wx:for="{{goods}}" wx:for-item="item" wx:key="index">
+      <view wx:if="{{index%2==1}}" class="goods-wrapper" bindtap="goGoodsDetail" data-index="{{index}}">
+        <view class="imgs-wrapper">
+          <image class="goods-img" src="{{item.imgs[0]}}" mode="widthFix"></image>
+        </view>
+        <view class="goods-title">{{item.title}}</view>
+        <view wx:if="{{item.state}}"  class="goods-price">{{item.price}}</view>
+        <view wx:else class="iconfont icon-yimaichu"></view>
+      </view>
+    </block>
+  </view>
+</view>
+<view wx:else class="noMoreGoods">
+  <view>还没有此类商品，换个关键词试试</view>
+</view>

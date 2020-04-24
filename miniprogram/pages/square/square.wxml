@@ -1,0 +1,15 @@
+<!--miniprogram/pages/square/square.wxml-->
+<!-- 引入卡片模版 -->
+<import src="../template/square-item" />
+
+<view bindtap="goAdd" class="add_post">
+  <icon class="iconfont icon-qianbipencil82"></icon>
+</view>
+
+<view class="paddingOfCard">
+  <block wx:for="{{posts}}" wx:for-item="item" wx:key="index">
+    <view bindtap="loadDetail" data-index="{{index}}">
+      <template is="square-items" data="{{item:item,index:index}}" />
+    </view>
+  </block>
+</view>

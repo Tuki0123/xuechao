@@ -1,0 +1,29 @@
+<!--pages/me/me.wxml-->
+
+<!-- 顶部个人信息 -->
+<view class="user-info-wrapper">
+  <view class="user-img">
+    <image src="{{userInfo.avatarUrl}}"></image>
+  </view>
+  <view class="user-name">{{userInfo.nickName}}</view>
+</view>
+
+<!-- 交易记录块 -->
+<!-- <view class="history-wrapper">
+  <view class="history-ipulish">
+    <view class="history-number">0</view>
+    <view class="history-title">我的发布</view>
+  </view>
+  <view class="history-isell">
+    <view class="history-number">0</view>
+    <view class="history-title">我的售出</view>
+  </view>
+  <view class="history-ibuy">
+    <view class="history-number">0</view>
+    <view class="history-title">我的买入</view>
+  </view>
+  <view class="history-iwant">
+    <view class="history-number">0</view>
+    <view class="history-title">我的喜欢</view>
+  </view>
+</view> -->

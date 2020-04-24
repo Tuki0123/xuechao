@@ -1,0 +1,216 @@
+/* miniprogram/pages/messageDetail/messageDeatil.wxss */
+/* 顶部信息框 */
+.head-wrapper{
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  /* 定位 */
+  position: fixed;
+  top: 0px;
+  z-index: 999;
+  margin: 0px;
+  padding: 0px;
+}
+/* 单个信息 */
+.head-item{
+  box-sizing: border-box;
+  width: 100%;
+  height: 60px;
+  padding: 0px 10px;
+  /* 弹性 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.head-item .goods-img{
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin: 5px 0px;
+}
+.head-item .goods-text{
+  width: 200px;
+  height: 40px;
+  margin: 10px 10px;
+  font-size: 15px;
+  color: #E3E3E3;
+}
+.goods-text > view{
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+}
+.head-item .head-btn{
+  /* 大小边框 */
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 5px;
+  margin-left: 20px;
+  /* 颜色 */
+  background-color: #fed802;
+  /* 字体 */
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  /* 弹性居中 */
+  display: flex;
+  justify-content: center;
+}
+/* 完成图标 */
+.head-item > icon{
+  width: 50px;
+  height: 50px;
+  color:#E3E3E3;
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+/* 其他任务 */
+.head-item .item-text{
+  width: 70%;
+  height: 50px;
+  overflow: hidden;
+  font-size: 15px;
+  color: #E3E3E3;
+}
+.item-text .item-title{
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  font-weight: bold;
+  color: #000;
+}
+.item-text .item-content{
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  /* 省略号 */
+  text-overflow: ellipsis;
+  /* 不换行 */
+  white-space: nowrap;
+  /* 溢出不显示 */
+  overflow: hidden;
+}
+/* 底部框 */
+.bottom-wrapper{
+  /* 大小 */
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  padding: 5px 10px;
+  /* 颜色 */
+  background-color: #fff;
+  /* 定位 */
+  position: fixed;
+  bottom: 0px;
+  /* 弹性 */
+  display: flex;
+  align-items: center;
+}
+/* 底部输入框 */
+.bottom-wrapper > input{
+  /* 大小边框 */
+  box-sizing: border-box;
+  width: 75%;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 10px;
+  /* 颜色 */
+  background-color: #F6F6F6;
+}
+/* 底部发送 */
+.bottom-wrapper .bottom-send{
+  /* 大小边框 */
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 5px;
+  margin-left: 20px;
+  /* 颜色 */
+  background-color: #fed802;
+  /* 字体 */
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  /* 弹性居中 */
+  display: flex;
+  justify-content: center;
+}
+
+
+/* 聊天主题内容 */
+/* 外部容器 */
+.message-wrapper{
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 50px;
+  margin-top: 65px;
+}
+/* 时间样式 */
+.message-wrapper .time{
+  /* 大小边框 */
+  width: 45%;
+  height: 25px;
+  line-height: 25px;
+  border-radius: 10px;
+  background-color: #E3E3E3;
+  /* 居中 */
+  margin:10px auto;
+  /* 字体 */
+  font-size: 15px;
+  /* 内容居中 */
+  display: flex;
+  justify-content: space-around;
+}
+/* 聊天内容的公共样式 */
+/* 外部容器 */
+.message{
+  /* 大小 */
+  width: 100%;
+  margin: 10px 0;
+  /* 弹性 */
+  display: flex;
+  /* 辅轴对齐方式 */
+  align-items: flex-start;
+}
+/* 头像 */
+.user-avatar{
+  /* 大小边框 */
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+/* 内容 */
+.message-text{
+  /* 大小 */
+  width: auto;
+  max-width: 200px;
+  height: auto;
+  line-height: 18px;
+  padding: 11px 10px;
+  border-radius: 10px;
+  margin: 0 10px;
+  /* 字体 */
+  font-size: 16px;
+}
+.message-text > text{
+  word-wrap: break-word;
+}
+/* 具体不同的对象的样式 */
+/* 对方的消息 */
+.other{
+  justify-content: flex-start;
+}
+.other .message-text{
+  background-color: #fff;
+  color: #000;
+}
+/* 自己的消息 */
+.self{
+  justify-content: flex-end;
+}
+.self .message-text{
+  background-color: #fed802;
+  color: #FFF;
+}

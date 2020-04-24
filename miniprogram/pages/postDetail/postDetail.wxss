@@ -1,0 +1,129 @@
+/* miniprogram/pages/postDetail/postDetail.wxss */
+/*引用square页面的wxss样式*/
+@import'../square/square.wxss';
+/* 最下部工具块 */
+.bottom-wrapper{
+  /* 大小颜色 */
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background-color: #fff;
+  border-top: 1px solid rgba(153, 153, 153, .3);
+  /* 固定定位 */
+  position: fixed;
+  bottom: 0px;
+  /* 弹性 */
+  display: flex;
+  align-items: center;
+}
+/* 输入框 */
+.bottom-wrapper > input{
+  /* 大小位置 */
+  height: 30px;
+  margin:0px 15px 0px 15px;
+  padding: 0 20px;
+  /* 背景颜色 */
+  background-color: #f6f6f6;
+  /* 圆角 */
+  border-radius: 10px;
+  /* 动画 */
+  transition: all 500ms;
+}
+/* 输入框旁的发送按钮 */
+.bottom-wrapper .bottom-send {
+  font-size: 16px;
+  
+}
+/* 输入框旁的点赞 */
+.bottom-wrapper > icon{
+  font-size: 18px;
+}
+
+/* 下面引发评论和抢沙发的模块 */
+.noComments{
+  /* 大小边框 */
+  height: 30px;
+  line-height: 30px;
+  border-radius: 6px;
+  margin-bottom: 50px;
+  /* 颜色 */
+  background-color: #fff;
+  /* 阴影 */
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 5px 0px;
+  /* 文字 */
+  text-align: center;
+  color: #999999;
+}
+
+/* 评论块容器 */
+.comment-wrapper {
+  border-radius: 6px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.239216) 0px 2px 5px 0px;
+  margin-bottom: 1rem;
+}
+.comment-head{
+  padding: 10px;
+  font-size: 16px;
+  color: #999999;
+}
+
+/* 单个评论项 */
+.comment-item{
+  width: 100%;
+  /* 上边框,分割线 */
+  border-top: 1px solid rgba(153, 153, 153, .3);
+}
+/* 上部用户信息 */
+.comment-top{
+  /* 大小 */
+  width: 100%;
+  height: 40px;
+  padding-left: 15px;
+  /* 弹性，使内部元素水平排列 */
+  display: flex;
+  /* 垂直居中 */
+  align-items: center;
+}
+/* 用户头像 */
+.comment-top > image{
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  margin:5px 10px 5px 0;
+}
+/* 用户名字 */
+.comment-top > .user-name{
+  font-size: 15px;
+  color: #000;
+  margin-right: 10px;
+}
+/* 发布时间 */
+.comment-top > .comment-time{
+  font-size: 12px;
+  color: #8c8c8c;
+}
+/* 下部内容 */
+.comment-bottom{
+  width: 100%;
+  padding: 0px 55px 5px 55px;
+}
+.comment-bottom > text{
+  font-size: 15px;
+  color: #a1a1a1;
+}
+.contTop {
+  width: 750rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20rpx;
+}
+.top-view {
+  width: 93%;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+}

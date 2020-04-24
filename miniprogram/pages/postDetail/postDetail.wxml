@@ -1,0 +1,86 @@
+<!--miniprogram/pages/postDetail/postDetail.wxml-->
+<view class="page">
+  <!-- 最下方功能块 -->
+  <view class="bottom-wrapper">
+    <!-- 输入框，绑定了许多事件，功能详见JS页面和官方input组件文档 -->
+    <input class="pinglun-input" value="{{value}}" placeholder="请回复..." bindfocus="inputFocus" bindblur="inputBlur"  bindinput="inputInput" focus="{{foucs}}" style="width:{{inputWidth}}"></input>
+    <!-- 输入框聚焦时显示发送按钮,字体颜色根据输入框是否有内容而改变 -->
+    <view wx:if="{{inputSend}}" style="color:{{inputSendColor}}" catchtap="sendComment"  class="bottom-send">发送</view>
+    <!-- 输入框失去焦点时显示点赞按钮 -->
+    <view wx:else catchtap="likeBtn">
+       <icon wx:if="{{post.iLike}}" class="iconfont icon-xihuan" style="color:#FC3B65"></icon>
+      <icon wx:else class="iconfont icon-xihuan1" ></icon>
+    </view>
+  </view>
+
+ <!-- 文章整体 -->
+  <view class="carditem">
+    <view class="userinfo">
+      <navigator class="headnav">
+        <!--image mode属性：图片的裁剪缩放模式；aspectFill：以短边为主，多余部分截取-->
+        <image class="headimage" mode="aspectFill" src="{{post.userinfo[0].userInfo.avatarUrl}}" />
+        <view class="usertext" style="margin-left: 20px;">
+          <text class="usertext-name" style="margin-bottom: 3px;display:block;">{{post.userinfo[0].userInfo.nickName}}</text>
+          <text class="usertext-college" style="font-size: 13px;color: #a1a1a1;">{{post.userinfo[0].college}}</text>
+        </view>
+      </navigator>
+    </view>
+    <!-- 内容区 -->
+    <view class="itemnav">
+      <view wx:if="{{post.imgs.length == 0}}"></view>
+      <image wx:else class="carditemimage"  catchtap="previewImg" data-imgs="{{post.imgs}}" mode="aspectFill" src="{{post.imgs[0]}}" />
+      <view class="itemtextpadding" style="padding:10px;">
+        <text class="carditemtext">{{post.textContent}}</text>
+      </view>
+    </view>
+    <!-- 点赞评论功能区 -->
+    <view class="cardbottom" style="padding:10px;">
+      <view class="bottomlikehate" style="display: flex;padding-left: 0.5rem;">
+        <view class="bottomlike" catchtap="likeBtn">
+          <icon wx:if="{{post.iLike}}" class="iconfont icon-xihuan" style="color:#FC3B65"></icon>
+          <icon wx:else class="iconfont icon-xihuan1"></icon>
+          <text class="liketext" style="font-size: 12px;color: #8c8c8c;">{{likeSum}}</text>
+        </view>
+        <view class="bottomhate" bindtap="loadDetail" id="{{post._id}}">
+          <icon class="iconfont icon-pinglun"></icon>
+          <text class="hatetext" style="font-size: 12px;color: #8c8c8c;">{{commentSum}}</text>
+        </view>
+      </view>
+      <text class="publishtime" style="font-size: 12px;color: #8c8c8c;">{{post.time}}</text>
+    </view>
+
+  </view>
+
+
+  
+
+  <!-- 有则显示评论 -->
+  <view wx:if="{{comments.length != 0}}" class="comment-wrapper" >
+    <view class="comment-head">
+      <text>评 论</text>
+    </view>
+    <block wx:for="{{comments}}" wx:key="index">
+
+      <!-- 单个评论项 -->
+      <view class="comment-item">
+        <!-- 上部用户信息区域 -->
+        <view class="comment-top">
+          <image  mode="aspectFill" src="{{item.userinfo.avatarUrl}}" />
+          <text class="user-name">{{item.userinfo.nickName}}</text> 
+          <text class="comment-time">{{item.time}}</text>
+        </view>
+        <!-- 下部文字区域 -->
+        <view class="comment-bottom">
+          <text>{{item.value}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 如果没有评论则显示 -->
+  <view  catchtap="doComment">
+    <view wx:if="{{comments.length == 0}}" class="noComments">没人评论，快抢沙发！</view>
+    <view wx:else class="noComments">发表你的看法</view>
+  </view>
+
+</view>
