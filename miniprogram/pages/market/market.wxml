@@ -22,8 +22,9 @@
   <view class="menu-item" catchtap="getCategoryGoods" data-value="生活百货">生活百货</view>
 </scroll-view>
 
+<!-- 两列商品展览 -->
 <view wx:if="{{goods.length!=0}}" class="list-wrapper">
-  <!-- 两列商品展览 -->
+  <!-- 左侧商品 -->
   <view class="left-list-wrapper">
      <block wx:for="{{goods}}" wx:for-item="item" wx:key="index">
       <view wx:if="{{index%2==0}}" class="goods-wrapper" bindtap="goGoodsDetail" data-index="{{index}}">
@@ -36,7 +37,7 @@
       </view>
     </block>
   </view>
-
+  <!-- 右侧商品 -->
   <view class="right-list-wrapper">
     <block wx:for="{{goods}}" wx:for-item="item" wx:key="index">
       <view wx:if="{{index%2==1}}" class="goods-wrapper" bindtap="goGoodsDetail" data-index="{{index}}">

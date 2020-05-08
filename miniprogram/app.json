@@ -11,8 +11,7 @@
     "pages/publish-post/publish-post",
     "pages/me/me",
     "pages/goods-detail/goods-detail",
-    "pages/postDetail/postDetail",
-    "pages/cover-view/book-info/book-info"
+    "pages/postDetail/postDetail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

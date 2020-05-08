@@ -210,16 +210,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    wx.showNavigationBarLoading({
-      // complete: (res) => {console.log("下拉刷新动画")},
-    })
+    //下拉刷新动画
+    wx.showNavigationBarLoading()
+    // 执行获取数据方法
     this.markPost();
-    wx.hideNavigationBarLoading({
-      // complete: (res) => {console.log("完成停止加载")},
-    })
-    wx.stopPullDownRefresh({
-      // complete: (res) => {console.log("定制下拉刷新")},
-    })
+    // 停止刷新动画
+    wx.hideNavigationBarLoading()
+    // 结束下拉刷新
+    wx.stopPullDownRefresh()
   },
 
   /**

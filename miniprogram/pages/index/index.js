@@ -9,6 +9,9 @@ Page({
      openid:" "
   },
   onLoad: function(){
+    wx.showLoading({
+      title: '加载中',
+    })
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
@@ -51,12 +54,14 @@ Page({
               // 将用户信息存入缓存
               wx.setStorageSync('userinfo', res.userInfo);
               // 跳转进主页
+              wx.hideLoading();
               wx.switchTab({
                 url: '../square/square',
               })
             }
           })
         }else{
+          wx.hideLoading();
           console.log("用户未授权：",res);
         }
       }
@@ -64,7 +69,7 @@ Page({
   },
   
   // 登录事件函数
-  haddleGetUserInfo(e){
+  haddleGetUserInfo: async function(e){
     wx.showLoading({
       title:'处理中',
     })
@@ -79,49 +84,80 @@ Page({
       userInfo : userInfo
     });
     // 写入数据库
-    this.putUser();
-    wx.hideLoading({
-      complete: (res) => {},
+    console.log("开始执行写入函数");
+    this.putUser()
+    .then((res)=>{
+      console.log("写入函数执行完毕");
+      wx.hideLoading({
+        complete: (res) => {},
+      })
+      // 跳转进主页
+      wx.switchTab({
+        url: '../square/square',
+      })
     })
-    // 跳转进主页
-    wx.switchTab({
-      url: '../square/square',
+    .catch((err)=>{
+      console.log("写入函数执行完毕");
+      wx.hideLoading({
+        complete: (res) => {},
+      })
+      console.log("执行失败");
+      wx.showToast({
+        title: '登录失败',
+      })
     })
-
   },
   // 将用户写入数据库
-  putUser: function(){
-    // 获取用户信息
-    var userInfo = this.data.userInfo;
-    var openId = this.data.openid;
-    // 先查找，若已有信息，则更新
-    db.collection('user').where({
-      _openid: openId
-    }).get({
-      success: res=>{
-        console.log("查询用户库结果:",res);
-        if (res.result.data.length==0) {
-          console.log("将用户写入数据库：",userInfo);
-          db.collection('user').add({
-            data: {
-              userInfo : userInfo,
-              identification : false,
-              university : "none",
-              college : "none"
-            }
-          });
-        } else {
-          // 更新
-          db.collection('user').doc(res.result.data[0]._id).update({
-            data:{
-              userInfo: userInfo
-            },
-            complete: res=>{
-              console.log("更新完成",res);
-            }
-          })
+  putUser:  function(){
+    var that = this;
+    return new Promise((resolve,reject)=>{
+      // 获取用户信息
+      var userInfo = this.data.userInfo;
+      var openId = this.data.openid;
+      // 先查找，若已有信息，则更新
+      db.collection('user').where({
+        _openid: openId
+      }).get({
+        success: res=>{
+          console.log("查询用户库结果:",res);
+          if (res.data.length==0) {
+            console.log("将用户写入数据库：",userInfo);
+            db.collection('user').add({
+              data: {
+                userInfo : userInfo,
+                identification : false,
+                university : "none",
+                college : "none"
+              },
+              success: function(res){
+                console.log("插入成功:",res);
+                resolve (res);
+              },
+              fail: function(err){
+                console.log("插入失败:",err);
+                reject (err);
+              }
+            });
+          } else {
+            // 更新
+            console.log("将用户信息更新：",userInfo);
+            db.collection('user').doc(res.data[0]._id).update({
+              data:{
+                userInfo: userInfo
+              },
+              complete: res=>{
+                console.log("更新完成",res);
+                resolve (res);
+              }
+            })
+          }
+        },
+        fail: err=>{
+          console.log("查询用户库失败:",err);
+          reject (err);
         }
-      }
+      })
+
     })
     
   }
